@@ -1,7 +1,7 @@
 #Universidad del Valle de Guatemala
 #Algoritmos y Estructuras de Datos
 #Ing. Douglas Barrios
-#@author: Julián Divas, Arodi Chavez, Ronald Catún
+#@author: Julián Divas, Arodi Chávez, Ronald Catún
 #Creación: 19/02/2025
 #última modificación: 19/02/2025
 #File Name: Simulacion.py
@@ -40,6 +40,20 @@ def proceso(env, nombre, memoria, instrucciones, ram, cpu):
             #Se indica cuantas instrucciones se ejecutaron y las faltantes
             print(f"{env.now}: Proceso {nombre} ejecutó {ejecucion}. Faltan {instrucciones}")
     #Se libera la ram que estaba siendo utilizada
+
+                # Verificar si el proceso ha terminado
+            if instrucciones == 0:
+                print(f"{env.now}: Proceso {nombre} ha terminado y pasa a TERMINATED")
+                yield ram.put(memoria)  # Libera la RAM usada
+                return
+
+            # Verificar si el proceso entra en WAITING (I/O)
+            probabilidad = random.randint(1, 21)
+            if probabilidad == 1:
+                print(f"{env.now}: Proceso {nombre} entra en WAITING (I/O)")
+                yield env.timeout(random.randint(1, 3))  # Simula el tiempo de espera en I/O
+                print(f"{env.now}: Proceso {nombre} ha terminado I/O y vuelve a READY")
+
     yield ram.put(memoria)
     #El proceso a sido terminado
     print(f"{env.now}: Proceso {nombre} ha terminado")
