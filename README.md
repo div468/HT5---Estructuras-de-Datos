@@ -2,7 +2,7 @@
 [https://github.com/div468/HT5---Estructuras-de-Datos.git](https://github.com/div468/HT5---Estructuras-de-Datos.git)
 # ¿Cuál es la mejor estrategia para reducir el tiempo promedio de ejecución de los procesos?
 
-Aumentar tanto la memoria como el procesador, ya que mientras el procesador es capaz de hacer más tareas, el aumento de memoria RAM le permite ser más rápido para tareas complejas. pero si alguno de los dos es más bajo que el otro genera un cuello de botella que hace más lento el procedimiento y por lo tanto no se percibe ningún cambio.
+Para la reducción de los tiempos promedios de ejecución de los procesos se recomienda equilibrar el aumento de la memoria RAM y la capacidad del procesador. Ya que mientras el procesador es capaz de hacer más tareas, el aumento de memoria RAM le permite ser más rápido para tareas complejas. pero si alguno de los dos es más bajo que el otro genera un cuello de botella que hace más lento el procedimiento y por lo tanto no se percibe ningún cambio. Además, es importante tomar en cuenta el hardware y optimizarlo, haciendo uso de algoritmos eficientes.
 
 
 Img 1 cambios con CPU y RAM con y sin cambio
