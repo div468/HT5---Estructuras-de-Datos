@@ -10,5 +10,5 @@ tabla no.1 desviación y tiempos sin cambios
 tabla no. 2 tabla con CPU y RAM al max 
 ![1000137130](https://github.com/user-attachments/assets/795b4ac4-b1b5-494e-987e-bbd4abba8346)
 
-Img 1 representación de las gráficas de los intervalos 5, 10 y 1
+Tiempo promedio de ejecución de procesos con distintos intervalos
 ![1000137161](https://github.com/user-attachments/assets/9362f16e-8685-473c-93a0-e56070402dd3)
