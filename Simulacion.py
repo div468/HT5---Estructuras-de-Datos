@@ -82,6 +82,6 @@ def ejecutar_simulacion(total_procesos):
     env.run()
 
     promedio, desviacion = calcular_estadisticas(tiempos)
-    print(f"Procesos: {total_procesos}, Promedio: {promedio:.2f}, Desviación Estándar: {desviacion:.2f}")
+    print(f"Procesos: {total_procesos}, Tiempo promedio de procesos: {promedio:.2f}, Desviación Estándar: {desviacion:.2f}")
 
 ejecutar_simulacion(5)
