@@ -9,7 +9,21 @@
 
 import simpy
 import random
-import numpy as np
+import math
+
+# Función para calcular el promedio manualmente
+def calcular_promedio(tiempos):
+    if len(tiempos) == 0:
+        return 0
+    return sum(tiempos) / len(tiempos)
+
+# Función para calcular la desviación estándar manualmente
+def calcular_desviacion_estandar(tiempos, promedio):
+    if len(tiempos) == 0:
+        return 0
+    suma_cuadrados = sum((x - promedio) ** 2 for x in tiempos)
+    varianza = suma_cuadrados / len(tiempos)
+    return math.sqrt(varianza)
 
 # Función para solicitar memoria
 def solicitar_memoria(env, nombre, memoria, ram):
@@ -61,16 +75,10 @@ def crear_procesos(env, total_procesos, ram, cpu, tiempos):
         instrucciones = random.randint(1, 10)
         env.process(proceso(env, f"Proceso {i + 1}", mem_necesaria, instrucciones, ram, cpu, tiempos))
 
-# Función para calcular el promedio y la desviación estándar
-def calcular_estadisticas(tiempos):
-    promedio = np.mean(tiempos)
-    desviacion = np.std(tiempos)
-    return promedio, desviacion
-
 # Función principal para ejecutar la simulación
 def ejecutar_simulacion(total_procesos):
     random.seed(0)
-    capacidad_ram = 100
+    capacidad_ram = 100 
     cantidad_cpu = 1
 
     env = simpy.Environment()
@@ -81,7 +89,9 @@ def ejecutar_simulacion(total_procesos):
     env.process(crear_procesos(env, total_procesos, ram, cpu, tiempos))
     env.run()
 
-    promedio, desviacion = calcular_estadisticas(tiempos)
-    print(f"Procesos: {total_procesos}, Tiempo promedio de procesos: {promedio:.2f}, Desviación Estándar: {desviacion:.2f}")
+    promedio = calcular_promedio(tiempos)
+    desviacion = calcular_desviacion_estandar(tiempos, promedio)
+    print(f"\nProcesos: {total_procesos}")
+    print(f"Tiempo promedio de los procesos: {promedio:.2f}, Desviación estándar de los procesos: {desviacion:.2f}\n")
 
-ejecutar_simulacion(5)
+ejecutar_simulacion(200)
